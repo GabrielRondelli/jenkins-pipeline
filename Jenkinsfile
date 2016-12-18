@@ -10,7 +10,7 @@ try {
 			)
 		}
 		stage('Test'){
-			sh 'rake --rakefile ./spec/Rakefile --libdir ./spec/lib'
+			sh '/usr/local/rvm/rubies/ruby-2.3.0/bin/rake --rakefile ./spec/Rakefile --libdir ./spec/lib'
 		}
 	}
 }catch (err) {
