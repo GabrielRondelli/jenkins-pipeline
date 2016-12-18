@@ -1,0 +1,12 @@
+---
+
+10.0.2.6:
+  :roles:
+    - centos
+    - mysql
+    - httpd
+  :networks:
+    - device_id: 0
+      mac_address: 08:00:27:0b:bc:9d 
+      ip_address: 10.0.2.6
+  :default_gateway: 10.0.2.1
