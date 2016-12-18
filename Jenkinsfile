@@ -1,7 +1,7 @@
 #!groovy
 
 currentBuild.result = "SUCCESS"
-workspace = pwd() 
+def workspace = pwd() 
 try {
 	node {
 		stage('Deploy') {
