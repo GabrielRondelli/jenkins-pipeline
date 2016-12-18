@@ -10,7 +10,7 @@ try {
 			)
 		}
 		stage('Test'){
-			sh 'run_rake_tests.sh'
+			sh 'rake --rakefile ./spec/Rakefile --libdir ./spec/lib'
 		}
 	}
 }catch (err) {
