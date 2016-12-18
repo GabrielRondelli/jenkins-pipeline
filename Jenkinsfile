@@ -3,7 +3,7 @@
 currentBuild.result = "SUCCESS"
 
 try {
-	node('lamp') {
+	node {
 		stage('Deploy') {
 			ansiblePlaybook( 
 				playbook: '../ansible-callback-web/site.yml',
