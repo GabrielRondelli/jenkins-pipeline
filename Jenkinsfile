@@ -1,7 +1,7 @@
 #!groovy
 
 currentBuild.result = "SUCCESS"
-
+  
 try {
 	node {
 		stage('Deploy') {
