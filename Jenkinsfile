@@ -3,11 +3,11 @@
 currentBuild.result = "SUCCESS"
 try {
 	node {
-		def workspace = pwd()	
+		def workspace = pwd()
 		stage('Deploy') {
 			ansiblePlaybook( 
-				playbook: '${workspace}/lamp-simple/site.yml',
-				inventory: '${workspace}/lamp-simple/hosts'
+				playbook: "${workspace}/lamp-simple/site.yml",
+				inventory: "${workspace}/lamp-simple/hosts"
 			)
 		}
 		stage('Test'){
