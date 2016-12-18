@@ -4,3 +4,5 @@
 httpd_port: 80
 ntpserver: 10.0.2.6
 repository: https://github.com/bennojoy/mywebapp.git
+ansible_ssh_user: root
+ansible_ssh_pass: reverse
