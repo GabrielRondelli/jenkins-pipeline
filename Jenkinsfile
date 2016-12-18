@@ -1,13 +1,13 @@
 #!groovy
 
 currentBuild.result = "SUCCESS"
-  
+workspace = pwd() 
 try {
 	node {
 		stage('Deploy') {
 			ansiblePlaybook( 
-				playbook: '../ansible-callback-web/site.yml',
-				inventory: '../ansible-callback-web/hosts'
+				playbook: '${workspace}/lamp-simple/site.yml',
+				inventory: '${workspace}/lamp-simple/hosts'
 			)
 		}
 		stage('Test'){

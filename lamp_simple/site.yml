@@ -1,0 +1,42 @@
+---
+# This playbook deploys the whole application stack in this site.
+
+
+- name: apply common configuration to all nodes
+  hosts: all
+  remote_user: root
+
+  roles:
+    - common
+
+  environment:
+    http_proxy: http://10.236.240.71:3128
+    https_proxy: http://10.236.240.71:3128
+    HTTP_PROXY: http://10.236.240.71:3128
+    HTTPS_PROXY: http://10.236.240.71:3128
+
+- name: configure and deploy the webservers and application code
+  hosts: webservers
+  remote_user: root
+
+  roles:
+    - web
+
+  environment:
+    http_proxy: http://10.236.240.71:3128
+    https_proxy: http://10.236.240.71:3128
+    HTTP_PROXY: http://10.236.240.71:3128
+    HTTPS_PROXY: http://10.236.240.71:3128
+
+- name: deploy MySQL and configure the databases
+  hosts: dbservers
+  remote_user: root
+
+  roles:
+    - db
+
+  environment:
+    http_proxy: http://10.236.240.71:3128
+    https_proxy: http://10.236.240.71:3128
+    HTTP_PROXY: http://10.236.240.71:3128
+    HTTPS_PROXY: http://10.236.240.71:3128

@@ -1,0 +1,34 @@
+---
+# This playbook contains common plays that will be run on all nodes.
+
+- name: Add repository
+  yum_repository:
+    name: epel
+    description: EPEL YUM repo
+    baseurl: http://dl.fedoraproject.org/pub/epel/7/x86_64
+
+- name: Mysql community release
+  yum: name=http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm state=present
+
+- name: Install wget package
+  yum: name=wget state=latest
+
+- name: Install mlocate package
+  yum: name=mlocate state=latest
+
+#- name: Upgrade all the packages
+#  yum: name=* state=latest
+
+- name: Install ntp
+  yum: name=ntp state=present
+  tags: ntp
+
+- name: Configure ntp file
+  template: src=ntp.conf.j2 dest=/etc/ntp.conf
+  tags: ntp
+  notify: restart ntp
+
+- name: Start the ntp service
+  service: name=ntpd state=started enabled=yes
+  tags: ntp
+
