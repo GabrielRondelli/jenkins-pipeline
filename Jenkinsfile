@@ -1,9 +1,9 @@
 #!groovy
 
 currentBuild.result = "SUCCESS"
-def workspace = pwd() 
 try {
 	node {
+		def workspace = pwd()	
 		stage('Deploy') {
 			ansiblePlaybook( 
 				playbook: '${workspace}/lamp-simple/site.yml',
