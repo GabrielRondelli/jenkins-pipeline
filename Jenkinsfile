@@ -1,6 +1,5 @@
 #!groovy
 
-
 currentBuild.result = "SUCCESS"
 
 try {
