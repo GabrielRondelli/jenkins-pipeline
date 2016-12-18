@@ -5,8 +5,8 @@ try {
 	node {
 		stage('Deploy') {
 			ansiblePlaybook( 
-				playbook: "lamp-simple/site.yml",
-				inventory: "lamp-simple/hosts"
+				playbook: "lamp_simple/site.yml",
+				inventory: "lamp_simple/hosts"
 			)
 		}
 		stage('Test'){
